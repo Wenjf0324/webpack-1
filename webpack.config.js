@@ -1,18 +1,21 @@
-var HtmlWebpackPlugin = require("html-webpack-plugin");
-var path = require("path");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var path = require('path');
 
 module.exports = {
-  mode: "development",
-  entry: "./src/index.js",
+  mode: 'development',
+  entry: './src/index.js',
   output: {
-    filename: "index.[contenthash].js",
+    filename: 'index.[contenthash].js'
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: "文文",
-      template: "src/assets/index.html",
-    }),
-  ],
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist',
+  },
+  plugins: [new HtmlWebpackPlugin({
+      title:'文文',
+      template: 'src/assets/index.html'
+  }
+  )],
   module: {
     rules: [
       {
